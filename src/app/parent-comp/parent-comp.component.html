@@ -1,0 +1,46 @@
+<p>parent-comp works!</p>
+
+
+<app-child-comp
+[message]="'data from parent'"
+
+[valueData]="data"
+
+(messageEvent)="recievedMessage($event)"
+
+></app-child-comp>
+
+
+
+
+<p>-----------</p>
+
+
+
+<app-child-comp
+[message]="'data from parent'"
+
+[valueData]="data"
+(messageEvent)="recievedMessage($event)"
+
+></app-child-comp>
+
+
+
+<p>------------</p>
+
+
+<app-child-comp
+[message]="'data from parent'"
+[valueData]="'third chilkd'"
+(messageEvent)="recievedMessage($event)"
+></app-child-comp>
+
+
+
+
+<router-outlet></router-outlet>
+
+
+
+

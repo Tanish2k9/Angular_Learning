@@ -1,0 +1,22 @@
+<div style="display: flex; justify-content: center;">
+    <h1>Create your course</h1>
+</div>
+
+
+<div style="width: 60%; margin: auto;">
+
+<div style="margin: 16px;">
+<label>Course name:</label><br/>
+<input style="padding: 8px; width: 100%;" [(ngModel)]="courseName" placeholder="course name"/>
+</div>
+
+<div style="margin: 16px;">
+<label>Course Description:</label><br/>
+<textarea style="padding: 8px; width: 100%;" [(ngModel)]="courseDescription"  placeholder="description" ></textarea>
+</div>
+<button style="width: 100%; padding: 8px; margin: 16px;" (click)="submitCourse()">submit</button>
+</div>
+
+
+
+

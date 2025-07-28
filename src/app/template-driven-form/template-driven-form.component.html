@@ -1,0 +1,24 @@
+<p>template-driven-form works!</p>
+
+
+
+<form  #formname="ngForm"  (ngSubmit)="onSubmit(formname)">
+    <div>
+        <input name="username"  ngModel  required="true" #user="ngModel" />
+        <div *ngIf="user.touched && user.invalid">
+            username is invalid
+
+        </div>
+    </div>
+    <div>
+        <input name="password" ngModel />
+    </div>
+
+
+    <div ngModelGroup="address">
+        <input name="city" ngModel />
+        <input name="state" ngModel />
+
+    </div>
+    <button>Submit</button>
+</form>

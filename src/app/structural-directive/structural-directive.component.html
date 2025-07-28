@@ -1,0 +1,34 @@
+<p>structural-directive works!</p>
+
+
+<button   [ngClass]="isShow?'button-color':'disabled'"   (click)=" isShow = !isShow">{{isShow?"Hode":"Show"}}</button>
+
+
+
+
+
+<div *ngIf="isShow">
+
+
+<!-- 
+    <div [ngSwitch]="userRole">
+
+        <p  *ngSwitchCase="'admin'" > Welcome to admin</p>
+        <p  *ngSwitchCase="'user'" > Welcome to user</p>
+
+        <p  *ngSwitchDefault> role not recognis</p>
+
+    </div> -->
+
+    <ul>
+        <li  *ngFor="let user of users;let i = index">
+
+{{i}} ---{{user}}
+        </li>
+    </ul>
+
+
+
+</div>
+
+
