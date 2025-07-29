@@ -1,0 +1,32 @@
+<p>reactive-form works!</p>
+
+
+
+
+
+
+<form [formGroup]="taskForm"   (ngSubmit)="onSubmit()">
+
+    <div>
+        <label>id</label>
+
+        <input    formControlName="id" />
+    </div>
+
+    <div *ngIf="taskForm.get('id')?.invalid && taskForm.get('id')?.touched">
+        id is required
+    </div>
+
+    <div>
+        <label>name</label>
+        <input formControlName="name" />
+
+    </div>
+
+    <div formGroupName="adress">
+        <input  formControlName="city"/>
+        <input  formControlName="state"/>
+    </div>
+
+    <button [disabled]="taskForm.invalid" type="submit"> submit</button>
+</form>

@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { CapitalizePipe } from './capitalize.pipe';
 import { TruncatePipe } from './truncate.pipe';
 import { TemplateDrivenFormComponent } from "./template-driven-form/template-driven-form.component";
+import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
+
 
 
 
@@ -15,7 +17,7 @@ import { TemplateDrivenFormComponent } from "./template-driven-form/template-dri
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterModule, CommonModule, TemplateDrivenFormComponent]
+  imports: [RouterModule, CommonModule, ReactiveFormComponent]
 })
 export class AppComponent {
   title = 'angular_learning';
