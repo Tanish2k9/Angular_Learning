@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { onlyLetterValidator } from '../Validators/onlyLetterValidator';
+import { whiteSpaceValidator } from '../Validators/whiteSpaceValidator';
 
 @Component({
   selector: 'app-reactive-form',
@@ -11,16 +13,33 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 export class ReactiveFormComponent {
 
 
-  taskForm:FormGroup = new FormGroup({
+  // taskForm:FormGroup = new FormGroup({
 
-    id: new FormControl('',Validators.required),
-    name: new FormControl(''),
-    adress: new FormGroup({
-      city:new FormControl(),
-      state: new FormControl()
+  //   id: new FormControl('',Validators.required),
+  //   name: new FormControl(''),
+  //   adress: new FormGroup({
+  //     city:new FormControl(),
+  //     state: new FormControl()
+  //   })
+  // });
+
+
+  taskForm:FormGroup;
+
+  constructor(private fb:FormBuilder){
+
+    this.taskForm = this.fb.group({
+
+      id:[''],
+      name:['',whiteSpaceValidator],
+
+      adress:this.fb.group({
+        city:['',Validators.required],
+        state:['']
+      })
     })
-  });
 
+  }
 
   onSubmit(){
     console.log(this.taskForm);

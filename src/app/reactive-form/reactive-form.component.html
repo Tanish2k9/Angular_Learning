@@ -21,12 +21,21 @@
         <label>name</label>
         <input formControlName="name" />
 
+
+        <div *ngIf="taskForm.get('name')?.errors?.['whiteSpace']">
+             name has white spaces
+        </div>
+
     </div>
 
     <div formGroupName="adress">
         <input  formControlName="city"/>
+
+        <div *ngIf="taskForm.get('adress.city')?.invalid">
+            City is required
+        </div>
         <input  formControlName="state"/>
     </div>
 
-    <button [disabled]="taskForm.invalid" type="submit"> submit</button>
+    <button  type="submit"> submit</button>
 </form>
