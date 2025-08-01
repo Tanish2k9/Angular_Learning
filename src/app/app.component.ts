@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ParentCompComponent } from './parent-comp/parent-comp.component';
 import { TodoComponent } from "./todo/todo.component";
@@ -9,6 +9,7 @@ import { CapitalizePipe } from './capitalize.pipe';
 import { TruncatePipe } from './truncate.pipe';
 import { TemplateDrivenFormComponent } from "./template-driven-form/template-driven-form.component";
 import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
+import { RoughService } from './rough.service';
 
 
 
@@ -22,6 +23,11 @@ import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
 export class AppComponent {
   title = 'angular_learning';
 
+  rough:RoughService = inject(RoughService);
+
+
+
+
 
   constructor(private truncate:TruncatePipe){}
 
@@ -33,6 +39,12 @@ export class AppComponent {
 
   transformMyName(){
     this.myName = this.truncate.transform(this.myName,10)
+
+
+    this.rough.products.push({
+      id:5,
+      name:"daskfiasjgi"
+    },)
   }
 
 

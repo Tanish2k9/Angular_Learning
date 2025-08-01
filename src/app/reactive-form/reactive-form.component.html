@@ -37,5 +37,30 @@
         <input  formControlName="state"/>
     </div>
 
+    <div formArrayName="skills">
+
+
+        <div *ngFor="let skill of skills.controls; let i=index">
+            <label>skills</label>
+            <input  [formControlName]="i">
+        </div>
+
+    </div>
+
+    <div formArrayName="tasks">
+        <div *ngFor="let task of tasks.controls; let i=index" [formGroupName]="i">
+            <label>taskname</label>
+            <input  formControlName="taskname">
+
+            <label>desccriptionm</label>
+            <input  formControlName="desc">
+        </div>
+    </div>
+
+
+    <button type="button"  (click)="addSkills()" >add skills</button>
+
+
+
     <button  type="submit"> submit</button>
 </form>
