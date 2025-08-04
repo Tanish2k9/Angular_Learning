@@ -10,6 +10,7 @@ import { TruncatePipe } from './truncate.pipe';
 import { TemplateDrivenFormComponent } from "./template-driven-form/template-driven-form.component";
 import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
 import { RoughService } from './rough.service';
+import { ChangeDetectionComponent } from "./change-detection/change-detection.component";
 
 
 
@@ -18,7 +19,7 @@ import { RoughService } from './rough.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterModule, CommonModule, ReactiveFormComponent]
+  imports: [RouterModule, CommonModule, ReactiveFormComponent, ChangeDetectionComponent]
 })
 export class AppComponent {
   title = 'angular_learning';
