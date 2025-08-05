@@ -4,12 +4,24 @@
 
 <button (click)="changeChild()">change child data</button>
 
-<app-chang-child
 
-[data]="childData"
-[dataObject]="childObject"
+<button (click)="show = !show">Show Child</button>
 
-></app-chang-child>
+
+<div *ngIf="show">
+
+    <app-chang-child
+
+    [data]="childData"
+    [dataObject]="childObject"
+
+    >
+
+    <div  #fromParent >from parent </div>
+    <div>sjdgjsdjkg</div>
+
+    </app-chang-child>
+</div>
 
 
 
