@@ -14,6 +14,7 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { childGuard } from './Guards/child.guard';
 import { deactiGuard } from './Guards/deacti.guard';
 import { matchRouteGuard } from './Guards/match-route.guard';
+import { IndexComponentComponent } from './rxjs/index-component/index-component.component';
 
 
 export const routes: Routes = [
@@ -45,6 +46,7 @@ export const routes: Routes = [
     {path:"course",component:CourseTaskComponent},
     {path:"course-details/:courseId",component:CourseDetailsComponent,canActivate:[courseGuard]},
     {path:"create-course",component:CreateCourseComponent},
+    {path:"rxjs",component:IndexComponentComponent},
     
     {path:"**",component:NotFoundComponent},
 ];
