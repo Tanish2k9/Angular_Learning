@@ -1,18 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { interval, Observable, of, Subscription } from 'rxjs';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { debounceTime, filter, interval, map, Observable, of, Subscription, take } from 'rxjs';
 
 @Component({
   selector: 'app-index-component',
-  imports: [],
+  imports: [FormsModule,ReactiveFormsModule],
   templateUrl: './index-component.component.html',
   styleUrl: './index-component.component.css'
 })
-export class IndexComponentComponent implements OnInit ,OnDestroy{
+export class IndexComponentComponent implements OnInit,OnDestroy{
   ngOnDestroy(): void {
-
-
     console.log("destroyed")
-
     this.subOb.unsubscribe();
   }
   
@@ -26,29 +24,47 @@ export class IndexComponentComponent implements OnInit ,OnDestroy{
   });
 
 
+  form!:FormGroup;
+
+
 
   subOb!:Subscription;
 
 
+
+
   ngOnInit(): void {
 
-    let obser = {
-      next:(data:string)=>{
-        console.log(data);
-      },
-      error:(err:string)=>{console.log(err)},
-      complete:()=>{
-        console.log("complete")
-      }
-    }
+    of(1,2,3,4,5).pipe(
+      map((data)=>data*5),
+      filter((x)=>x%2 === 0)
+    ).subscribe((data)=>console.log(data));
 
-    this.subOb = this.myObservable.subscribe(obser);
 
-    this.fruit$.subscribe((value)=>{console.log(value)})
+    let obser = new Observable((subsriber)=>{
+      subsriber.next("appple")
+      subsriber.next("grapes")
+    })
 
-    this.timer$.subscribe(val => console.log('Tick:', val));
+    let modify = obser.pipe(
+      map((x,index)=>`${index} --- ${x}`)
+    )
 
+    modify.subscribe((data)=>console.log(data));
+    obser.subscribe((x)=>console.log(x));
+
+    this.form = new FormGroup({
+      search:new FormControl("")
+    })
   }
+
+
+  onSubmit(){
+    this.form.get('search')?.valueChanges.pipe(debounceTime(2000)).subscribe((x)=>console.log(x));
+  }
+
+
+ 
 
 
   timer$ = interval(1000); 
