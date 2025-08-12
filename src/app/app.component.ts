@@ -11,6 +11,7 @@ import { TemplateDrivenFormComponent } from "./template-driven-form/template-dri
 import { ReactiveFormComponent } from "./reactive-form/reactive-form.component";
 import { RoughService } from './rough.service';
 import { ChangeDetectionComponent } from "./change-detection/change-detection.component";
+import { ApiComponent } from "./api/api.component";
 
 
 
@@ -19,7 +20,7 @@ import { ChangeDetectionComponent } from "./change-detection/change-detection.co
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterModule, CommonModule, ReactiveFormComponent, ChangeDetectionComponent]
+  imports: [RouterModule, CommonModule, ReactiveFormComponent, ChangeDetectionComponent, ApiComponent]
 })
 export class AppComponent {
   title = 'angular_learning';
