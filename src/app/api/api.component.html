@@ -3,6 +3,13 @@
 
 <button (click)="onSubmit()" >add</button>
 
+{{errMsg}}
+
+@for (post of posts;track post.id){
+
+    <div>{{post}}</div>
+}
+
 
 <div *ngFor="let post of posts; let i = index">
 <p>{{post.title }}----{{post.id }}</p>

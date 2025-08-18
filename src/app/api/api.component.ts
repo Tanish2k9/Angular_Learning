@@ -14,6 +14,7 @@ import { environment } from '../../environments/environment';
 export class ApiComponent implements OnInit {
 
   postService = inject(PostService);
+  errMsg = "";
 
   url = environment.apiUrl;
 
@@ -25,12 +26,19 @@ export class ApiComponent implements OnInit {
 
     localStorage.setItem('token',"asjfkajdskfjkanskfjkladsjfklj");
     
-    this.postService.getPost().subscribe((data:Post[])=>{
+    this.postService.getPost().subscribe({
+
+      next:(data:Post[])=>{
     
         this.posts = data;
     
       console.log("------------",data)
-      })
+      },
+      error:(err:Error)=>{
+        this.errMsg = err.message;
+        console.log(err.message);
+      }
+    })
   }
   http = inject(HttpClient);
 
